@@ -1,0 +1,27 @@
+{
+  "test_set_evaluation_count": 4,
+  "test_results_used_for_tuning": false,
+  "runs": [
+    {
+      "run": 1,
+      "configuration": "baseline",
+      "purpose": "initial baseline/final test reporting; output later superseded by final isolated reporting run"
+    },
+    {
+      "run": 2,
+      "configuration": "final",
+      "purpose": "initial baseline/final test reporting; output later superseded by final isolated reporting run"
+    },
+    {
+      "run": 3,
+      "configuration": "baseline",
+      "purpose": "final reporting after train-only TF-IDF comparison and split-isolation refactor"
+    },
+    {
+      "run": 4,
+      "configuration": "final",
+      "purpose": "final reporting after train-only TF-IDF comparison and split-isolation refactor"
+    }
+  ],
+  "note": "The train-only TF-IDF comparison did not use or change any test result. Current baseline_test.json and final_test.json are from runs 3 and 4."
+}

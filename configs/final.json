@@ -1,0 +1,9 @@
+{
+  "retriever": "bm25",
+  "max_chars": 3000,
+  "overlap": 300,
+  "k1": 1.5,
+  "b": 0.75,
+  "top_k": 5,
+  "abstention_threshold": 28.584378016411755
+}

@@ -1,0 +1,8 @@
+{
+  "retriever": "bm25",
+  "max_chars": 1800,
+  "overlap": 180,
+  "k1": 1.5,
+  "b": 0.75,
+  "top_k": 5
+}

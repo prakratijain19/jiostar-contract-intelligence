@@ -1,0 +1,40 @@
+{
+  "split": "train",
+  "test_set_evaluated": false,
+  "config": {
+    "retriever": "bm25",
+    "max_chars": 3000,
+    "overlap": 300,
+    "top_k": 5,
+    "abstention_threshold": 28.584378016411755
+  },
+  "threshold_selected_on": "train",
+  "abstention_threshold": 28.584378016411755,
+  "metrics": {
+    "char_precision@1": 0.01428856579191983,
+    "char_recall@1": 0.10117553297469616,
+    "char_precision@2": 0.022835776520498896,
+    "char_recall@2": 0.1983380310667788,
+    "char_precision@4": 0.022075460826645132,
+    "char_recall@4": 0.2510167131130102,
+    "char_precision@8": 0.021146267721636705,
+    "char_recall@8": 0.26102055335878593,
+    "char_precision@16": 0.021146267721636705,
+    "char_recall@16": 0.26102055335878593,
+    "char_precision@32": 0.021146267721636705,
+    "char_recall@32": 0.26102055335878593,
+    "char_precision@64": 0.021146267721636705,
+    "char_recall@64": 0.26102055335878593,
+    "queries": 140,
+    "abstention": {
+      "answerable_queries": 140,
+      "unanswerable_queries": 22,
+      "answerable_coverage": 1.0,
+      "incorrect_abstention_rate": 0.0,
+      "correct_abstention_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "correct_abstentions": 22,
+      "false_acceptances": 0
+    }
+  }
+}

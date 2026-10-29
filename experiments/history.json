@@ -1,0 +1,339 @@
+{
+  "timestamp_utc": "2026-10-29T18:39:51.565204+00:00",
+  "data_scope": "training split only",
+  "test_accessed": false,
+  "objective": "maximize mean character recall@8",
+  "guardrail": "character precision@8 may not fall more than 0.02",
+  "best_config": {
+    "max_chars": 3000,
+    "overlap": 300
+  },
+  "best_train_metrics": {
+    "char_precision@1": 0.01428856579191983,
+    "char_recall@1": 0.10117553297469616,
+    "char_precision@2": 0.022835776520498896,
+    "char_recall@2": 0.1983380310667788,
+    "char_precision@4": 0.022075460826645132,
+    "char_recall@4": 0.2510167131130102,
+    "char_precision@8": 0.021146267721636705,
+    "char_recall@8": 0.26102055335878593,
+    "char_precision@16": 0.021146267721636705,
+    "char_recall@16": 0.26102055335878593,
+    "char_precision@32": 0.021146267721636705,
+    "char_recall@32": 0.26102055335878593,
+    "char_precision@64": 0.021146267721636705,
+    "char_recall@64": 0.26102055335878593,
+    "queries": 140,
+    "abstention": {
+      "threshold": 28.584378016411755,
+      "negatives": 22
+    }
+  },
+  "experiments": [
+    {
+      "iteration": 0,
+      "proposal_source": "fixed baseline",
+      "reason": "BM25 baseline",
+      "config": {
+        "retriever": "bm25",
+        "max_chars": 1800,
+        "overlap": 180
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 80,
+        "gold_partially_covered_at_8": 13,
+        "gold_covered_at_8": 47
+      },
+      "metrics": {
+        "char_precision@1": 0.005117386580356233,
+        "char_recall@1": 0.03064094745907398,
+        "char_precision@2": 0.010160401586205162,
+        "char_recall@2": 0.0713086112505017,
+        "char_precision@4": 0.013716690029103301,
+        "char_recall@4": 0.13074864405596862,
+        "char_precision@8": 0.013095143726257965,
+        "char_recall@8": 0.14177223636076447,
+        "char_precision@16": 0.013064216916275443,
+        "char_recall@16": 0.14177223636076447,
+        "char_precision@32": 0.013064216916275443,
+        "char_recall@32": 0.14177223636076447,
+        "char_precision@64": 0.013064216916275443,
+        "char_recall@64": 0.14177223636076447,
+        "queries": 140,
+        "abstention": {
+          "threshold": 29.889228699977355,
+          "negatives": 22
+        }
+      },
+      "accepted": true
+    },
+    {
+      "iteration": 1,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "Smaller passages may improve local evidence focus.",
+      "config": {
+        "max_chars": 1200,
+        "overlap": 120
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 80,
+        "gold_partially_covered_at_8": 13,
+        "gold_covered_at_8": 47
+      },
+      "metrics": {
+        "char_precision@1": 0.003521774674671615,
+        "char_recall@1": 0.008318390117553299,
+        "char_precision@2": 0.008233143656842084,
+        "char_recall@2": 0.041809643761868166,
+        "char_precision@4": 0.0073249304924554205,
+        "char_recall@4": 0.06423541999515364,
+        "char_precision@8": 0.009530965859806185,
+        "char_recall@8": 0.08020258281026836,
+        "char_precision@16": 0.008824985633933398,
+        "char_recall@16": 0.08020258281026836,
+        "char_precision@32": 0.008824985633933398,
+        "char_recall@32": 0.08020258281026836,
+        "char_precision@64": 0.008824985633933398,
+        "char_recall@64": 0.08020258281026836,
+        "queries": 140,
+        "abstention": {
+          "threshold": 33.359732986157354,
+          "negatives": 22
+        }
+      },
+      "accepted": false,
+      "decision": "rejected: objective or precision guardrail not met"
+    },
+    {
+      "iteration": 2,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "Larger passages may cover long annotated clauses.",
+      "config": {
+        "max_chars": 2400,
+        "overlap": 240
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 80,
+        "gold_partially_covered_at_8": 13,
+        "gold_covered_at_8": 47
+      },
+      "metrics": {
+        "char_precision@1": 0.014509722942380999,
+        "char_recall@1": 0.07313733889127513,
+        "char_precision@2": 0.018768360049602854,
+        "char_recall@2": 0.17732951691624826,
+        "char_precision@4": 0.020587875273622252,
+        "char_recall@4": 0.2408429187803539,
+        "char_precision@8": 0.01962366309245183,
+        "char_recall@8": 0.2567464455453906,
+        "char_precision@16": 0.01962366309245183,
+        "char_recall@16": 0.2567464455453906,
+        "char_precision@32": 0.01962366309245183,
+        "char_recall@32": 0.2567464455453906,
+        "char_precision@64": 0.01962366309245183,
+        "char_recall@64": 0.2567464455453906,
+        "queries": 140,
+        "abstention": {
+          "threshold": 28.308149010938372,
+          "negatives": 22
+        }
+      },
+      "accepted": true,
+      "decision": "accepted: higher recall with precision guardrail"
+    },
+    {
+      "iteration": 3,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "No overlap tests whether duplicate spans dilute precision.",
+      "config": {
+        "max_chars": 1800,
+        "overlap": 0
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 73,
+        "gold_partially_covered_at_8": 10,
+        "gold_covered_at_8": 57
+      },
+      "metrics": {
+        "char_precision@1": 0.005117386580356233,
+        "char_recall@1": 0.03064094745907398,
+        "char_precision@2": 0.011226064699013555,
+        "char_recall@2": 0.0728535232396231,
+        "char_precision@4": 0.012698174774772931,
+        "char_recall@4": 0.12398729329673314,
+        "char_precision@8": 0.011629198154274017,
+        "char_recall@8": 0.13441537180545937,
+        "char_precision@16": 0.011480742612161119,
+        "char_recall@16": 0.13441537180545937,
+        "char_precision@32": 0.011480742612161119,
+        "char_recall@32": 0.13441537180545937,
+        "char_precision@64": 0.011480742612161119,
+        "char_recall@64": 0.13441537180545937,
+        "queries": 140,
+        "abstention": {
+          "threshold": 29.68675803200551,
+          "negatives": 22
+        }
+      },
+      "accepted": false,
+      "decision": "rejected: objective or precision guardrail not met"
+    },
+    {
+      "iteration": 4,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "More overlap may preserve evidence near boundaries.",
+      "config": {
+        "max_chars": 1800,
+        "overlap": 360
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 73,
+        "gold_partially_covered_at_8": 10,
+        "gold_covered_at_8": 57
+      },
+      "metrics": {
+        "char_precision@1": 0.004723654477270011,
+        "char_recall@1": 0.02974696154612472,
+        "char_precision@2": 0.010426677745039923,
+        "char_recall@2": 0.07181476823471263,
+        "char_precision@4": 0.013392826689542838,
+        "char_recall@4": 0.13009139543467982,
+        "char_precision@8": 0.01149070802835105,
+        "char_recall@8": 0.13059755241889073,
+        "char_precision@16": 0.01122619561381622,
+        "char_recall@16": 0.13059755241889073,
+        "char_precision@32": 0.01122619561381622,
+        "char_recall@32": 0.13059755241889073,
+        "char_precision@64": 0.01122619561381622,
+        "char_recall@64": 0.13059755241889073,
+        "queries": 140,
+        "abstention": {
+          "threshold": 29.935653282237148,
+          "negatives": 22
+        }
+      },
+      "accepted": false,
+      "decision": "rejected: objective or precision guardrail not met"
+    },
+    {
+      "iteration": 5,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "Shorter passages test fine-grained retrieval.",
+      "config": {
+        "max_chars": 900,
+        "overlap": 180
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 73,
+        "gold_partially_covered_at_8": 10,
+        "gold_covered_at_8": 57
+      },
+      "metrics": {
+        "char_precision@1": 0.0,
+        "char_recall@1": 0.0,
+        "char_precision@2": 0.003722633955192095,
+        "char_recall@2": 0.010802210684977392,
+        "char_precision@4": 0.003613424607985238,
+        "char_recall@4": 0.014167128080507031,
+        "char_precision@8": 0.004610793013588468,
+        "char_recall@8": 0.017989406992071657,
+        "char_precision@16": 0.004610793013588468,
+        "char_recall@16": 0.017989406992071657,
+        "char_precision@32": 0.004610793013588468,
+        "char_recall@32": 0.017989406992071657,
+        "char_precision@64": 0.004610793013588468,
+        "char_recall@64": 0.017989406992071657,
+        "queries": 140,
+        "abstention": {
+          "threshold": 37.61039043832997,
+          "negatives": 22
+        }
+      },
+      "accepted": false,
+      "decision": "rejected: objective or precision guardrail not met"
+    },
+    {
+      "iteration": 6,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "Long passages test contextual clause retrieval.",
+      "config": {
+        "max_chars": 3000,
+        "overlap": 300
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 73,
+        "gold_partially_covered_at_8": 10,
+        "gold_covered_at_8": 57
+      },
+      "metrics": {
+        "char_precision@1": 0.01428856579191983,
+        "char_recall@1": 0.10117553297469616,
+        "char_precision@2": 0.022835776520498896,
+        "char_recall@2": 0.1983380310667788,
+        "char_precision@4": 0.022075460826645132,
+        "char_recall@4": 0.2510167131130102,
+        "char_precision@8": 0.021146267721636705,
+        "char_recall@8": 0.26102055335878593,
+        "char_precision@16": 0.021146267721636705,
+        "char_recall@16": 0.26102055335878593,
+        "char_precision@32": 0.021146267721636705,
+        "char_recall@32": 0.26102055335878593,
+        "char_precision@64": 0.021146267721636705,
+        "char_recall@64": 0.26102055335878593,
+        "queries": 140,
+        "abstention": {
+          "threshold": 28.584378016411755,
+          "negatives": 22
+        }
+      },
+      "accepted": true,
+      "decision": "accepted: higher recall with precision guardrail"
+    },
+    {
+      "iteration": 7,
+      "proposal_source": "predeclared parameter experiment",
+      "reason": "Compare sparse cosine TF-IDF with BM25 on the same train split.",
+      "config": {
+        "retriever": "tfidf",
+        "max_chars": 3000,
+        "overlap": 300
+      },
+      "diagnosis": {
+        "wrong_document_at_8": 0,
+        "right_document_missed_at_8": 62,
+        "gold_partially_covered_at_8": 6,
+        "gold_covered_at_8": 72
+      },
+      "metrics": {
+        "char_precision@1": 0.024112885717416682,
+        "char_recall@1": 0.09403267583183901,
+        "char_precision@2": 0.019024730244020308,
+        "char_recall@2": 0.17573392666351123,
+        "char_precision@4": 0.017649168547550956,
+        "char_recall@4": 0.2202679903742441,
+        "char_precision@8": 0.0165264354273543,
+        "char_recall@8": 0.2345537046599584,
+        "char_precision@16": 0.01668972360335623,
+        "char_recall@16": 0.2416965618028155,
+        "char_precision@32": 0.01668972360335623,
+        "char_recall@32": 0.2416965618028155,
+        "char_precision@64": 0.01668972360335623,
+        "char_recall@64": 0.2416965618028155,
+        "queries": 140,
+        "abstention": {
+          "threshold": 0.25766981336964595,
+          "negatives": 22
+        }
+      },
+      "accepted": false,
+      "decision": "rejected: objective or precision guardrail not met"
+    }
+  ]
+}

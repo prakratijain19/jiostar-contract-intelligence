@@ -1,0 +1,4 @@
+[console_scripts]
+contract-download = contract_assistant.download_data:main
+contract-improve = contract_assistant.improve:main
+contract-search = contract_assistant.cli:main
